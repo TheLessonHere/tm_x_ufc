@@ -1,0 +1,20 @@
+/* Page-wrapper rules carried over from the prototype's inline <style>.
+   The landing page is a fixed 1280px desktop composition. */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--tm-bg);
+  scroll-behavior: smooth;
+}
+
+#root {
+  min-width: 1280px;
+}
+
+::selection {
+  background: rgba(85, 36, 102, 0.16);
+}
