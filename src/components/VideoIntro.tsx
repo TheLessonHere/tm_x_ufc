@@ -1,7 +1,18 @@
+import { useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
 
 export default function VideoIntro() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+  const [playing, setPlaying] = useState(false)
+
+  const play = () => {
+    const video = videoRef.current
+    if (!video) return
+    setPlaying(true)
+    void video.play()
+  }
+
   return (
     <section style={videoStyles.section} data-screen-label="06 Video Intro">
       <div style={videoStyles.inner}>
@@ -17,28 +28,37 @@ export default function VideoIntro() {
               through what to expect, how your responses are used, and how the
               continuum works.
             </p>
-            <button style={videoStyles.cta}>
+            <button style={videoStyles.cta} onClick={play}>
               <Icon name="play" size={14} color="#fff" />
               Watch the introduction
             </button>
           </div>
-          <button style={videoStyles.player} aria-label="Play introduction video">
-            <img
-              src="/assets/photos/family-coloring.jpg"
-              alt="A parent and two children spending time together"
-              style={videoStyles.poster}
+          <div style={videoStyles.player}>
+            <video
+              ref={videoRef}
+              style={videoStyles.video}
+              src="/assets/video/intro.mp4"
+              poster="/assets/photos/family-coloring.jpg"
+              controls={playing}
+              preload="metadata"
+              playsInline
+              onEnded={() => setPlaying(false)}
             />
-            <div style={videoStyles.posterTint} />
-            <div style={videoStyles.playerInner}>
-              <div style={videoStyles.playRing}>
-                <div style={videoStyles.playGlyph}>
-                  <Icon name="play" size={20} color="#fff" />
+            {!playing && (
+              <button style={videoStyles.overlay} onClick={play} aria-label="Play introduction video">
+                <div style={videoStyles.posterTint} />
+                <div style={videoStyles.playerInner}>
+                  <div style={videoStyles.playRing}>
+                    <div style={videoStyles.playGlyph}>
+                      <Icon name="play" size={20} color="#fff" />
+                    </div>
+                  </div>
+                  <div style={videoStyles.playerCaption}>Introduction · 2:20</div>
                 </div>
-              </div>
-              <div style={videoStyles.playerCaption}>Introduction · 1:48</div>
-            </div>
-            <div style={videoStyles.scanLines} />
-          </button>
+                <div style={videoStyles.scanLines} />
+              </button>
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -82,8 +102,18 @@ const videoStyles: Record<string, CSSProperties> = {
     position: 'relative',
     aspectRatio: '16 / 10',
     background: 'linear-gradient(135deg, #3a1f47 0%, #2a1133 100%)',
-    borderRadius: 14, border: 'none', cursor: 'pointer',
+    borderRadius: 14,
     overflow: 'hidden',
+  },
+  video: {
+    position: 'absolute', inset: 0,
+    width: '100%', height: '100%',
+    objectFit: 'cover', display: 'block',
+  },
+  overlay: {
+    position: 'absolute', inset: 0,
+    border: 'none', background: 'transparent', cursor: 'pointer',
+    padding: 0,
     display: 'flex', alignItems: 'center', justifyContent: 'center',
   },
   playerInner: {
@@ -101,11 +131,6 @@ const videoStyles: Record<string, CSSProperties> = {
     background: 'var(--tm-green)',
     display: 'flex', alignItems: 'center', justifyContent: 'center',
     paddingLeft: 4,
-  },
-  poster: {
-    position: 'absolute', inset: 0,
-    width: '100%', height: '100%',
-    objectFit: 'cover', display: 'block',
   },
   posterTint: {
     position: 'absolute', inset: 0,
