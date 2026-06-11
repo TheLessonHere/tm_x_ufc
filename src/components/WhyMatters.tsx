@@ -1,15 +1,26 @@
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function WhyMatters() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section = { ...whyStyles.section, padding: `${mobile ? 56 : narrow ? 72 : 96}px ${padX}px` }
+  const grid = { ...whyStyles.grid, gridTemplateColumns: narrow ? '1fr' : '1fr 1fr' }
+  const card = { ...whyStyles.card, padding: mobile ? 26 : 44 }
+  const h3 = { ...whyStyles.h3, fontSize: mobile ? 27 : 34 }
+
   return (
-    <section style={whyStyles.section} data-screen-label="03 Why It Matters">
+    <section style={section} data-screen-label="03 Why It Matters">
       <div style={whyStyles.inner}>
-        <div style={whyStyles.grid}>
+        <div style={grid} data-reveal>
           {/* LEFT — Why it matters */}
-          <article style={whyStyles.card}>
+          <article className="tm-card-hover" style={card}>
             <div style={whyStyles.eyebrow}>FOR YOU + YOUR FAMILY</div>
-            <h3 style={whyStyles.h3}>Why it matters</h3>
+            <h3 style={h3}>Why it matters</h3>
             <p style={whyStyles.lead}>
               Lorem ipsum dolor sit amet — children need you at your best, consectetur
               adipiscing elit sed do eiusmod.
@@ -40,9 +51,9 @@ export default function WhyMatters() {
           </article>
 
           {/* RIGHT — Designed for Utah foster families */}
-          <article style={{ ...whyStyles.card, background: '#fff' }}>
+          <article className="tm-card-hover" style={card}>
             <div style={whyStyles.eyebrow}>BUILT FOR THIS COMMUNITY</div>
-            <h3 style={whyStyles.h3}>Designed for Utah foster families</h3>
+            <h3 style={h3}>Designed for Utah foster families</h3>
             <p style={whyStyles.lead}>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Utah Foster Care
               supports your whole family — sed do eiusmod tempor incididunt.
@@ -65,7 +76,7 @@ export default function WhyMatters() {
                 </div>
               ))}
             </div>
-            <button style={whyStyles.cta}>Get free access →</button>
+            <button className="tm-cta" style={whyStyles.cta}>Get free access →</button>
           </article>
         </div>
       </div>

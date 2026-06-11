@@ -1,11 +1,23 @@
 import type { CSSProperties } from 'react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function Mission() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...missionStyles.section,
+    padding: `${mobile ? 64 : narrow ? 72 : 96}px ${padX}px`,
+  }
+  const h2: CSSProperties = { ...missionStyles.h2, fontSize: mobile ? 30 : narrow ? 40 : 52 }
+
   return (
-    <section style={missionStyles.section} data-screen-label="02 Mission">
-      <div style={missionStyles.inner}>
+    <section style={section} data-screen-label="02 Mission">
+      <div style={missionStyles.inner} data-reveal-stagger>
         <div style={missionStyles.eyebrow}>OUR PROMISE TO YOU</div>
-        <h2 style={missionStyles.h2}>
+        <h2 style={h2}>
           Caring for others starts with<br />
           taking care of <span style={missionStyles.accent}>you.</span>
         </h2>

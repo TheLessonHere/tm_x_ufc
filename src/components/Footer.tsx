@@ -1,5 +1,6 @@
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function Footer() {
   const cols = [
@@ -8,10 +9,33 @@ export default function Footer() {
     { h: 'UTAH FOSTER CARE', l: ['Become a foster family', 'Training', 'Events', 'Donate'] },
     { h: 'LEGAL', l: ['Privacy', 'Terms', 'Accessibility', 'Data practices'] },
   ]
+
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const f: CSSProperties = {
+    ...footStyles.f,
+    padding: `${mobile ? 56 : 80}px ${padX}px ${mobile ? 32 : 40}px`,
+  }
+  const inner: CSSProperties = {
+    ...footStyles.inner,
+    gridTemplateColumns: mobile ? '1fr 1fr' : narrow ? 'repeat(3, 1fr)' : '1.7fr 1fr 1fr 1fr 1fr',
+    gap: mobile ? 32 : narrow ? 40 : 56,
+  }
+  const brandCol: CSSProperties = { ...footStyles.brandCol, gridColumn: narrow ? '1 / -1' : 'auto' }
+  const bottomRow: CSSProperties = {
+    ...footStyles.bottomRow,
+    flexDirection: mobile ? 'column' : 'row',
+    alignItems: mobile ? 'flex-start' : 'center',
+    gap: mobile ? 10 : 0,
+  }
+
   return (
-    <footer style={footStyles.f} data-screen-label="11 Footer">
-      <div style={footStyles.inner}>
-        <div style={footStyles.brandCol}>
+    <footer style={f} data-screen-label="11 Footer">
+      <div style={inner}>
+        <div style={brandCol}>
           <div style={footStyles.partnerRow}>
             <img src="/assets/ufc-logo-white.png" alt="Utah Foster Care" style={footStyles.ufcLogo} />
             <span style={footStyles.partnerX}>×</span>
@@ -37,7 +61,7 @@ export default function Footer() {
         ))}
       </div>
       <div style={footStyles.divider} />
-      <div style={footStyles.bottomRow}>
+      <div style={bottomRow}>
         <div style={footStyles.copy}>© 2026 Utah Foster Care × Terrace Metrics. All rights reserved.</div>
         <div style={footStyles.bottomMeta}>Lorem ipsum dolor sit amet — non-profit partnership notice</div>
       </div>

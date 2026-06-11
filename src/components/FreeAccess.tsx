@@ -1,13 +1,34 @@
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function FreeAccess() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...freeStyles.section,
+    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+  }
+  const inner: CSSProperties = {
+    ...freeStyles.inner,
+    gridTemplateColumns: narrow ? '1fr' : '1fr 1fr',
+    gap: narrow ? 48 : 80,
+  }
+  const right: CSSProperties = {
+    ...freeStyles.right,
+    justifyContent: narrow ? 'center' : 'flex-end',
+  }
+  const h2: CSSProperties = { ...freeStyles.h2, fontSize: mobile ? 36 : narrow ? 44 : 60 }
+
   return (
-    <section style={freeStyles.section} data-screen-label="09 Free Access">
-      <div style={freeStyles.inner}>
+    <section style={section} data-screen-label="09 Free Access">
+      <div style={inner} data-reveal>
         <div style={freeStyles.left}>
           <div style={freeStyles.eyebrow}>FREE FOR UTAH FOSTER FAMILIES</div>
-          <h2 style={freeStyles.h2}>
+          <h2 style={h2}>
             No cost.<br />
             No subscription.<br />
             <span style={freeStyles.accent}>Access now.</span>
@@ -18,12 +39,12 @@ export default function FreeAccess() {
             incididunt ut labore.
           </p>
           <div style={freeStyles.ctas}>
-            <button style={freeStyles.primary}>Get free access →</button>
-            <button style={freeStyles.secondary}>Already have an account · Log in</button>
+            <button className="tm-cta" style={freeStyles.primary}>Get free access →</button>
+            <button className="tm-link-nudge" style={freeStyles.secondary}>Already have an account · Log in</button>
           </div>
         </div>
-        <div style={freeStyles.right}>
-          <div style={freeStyles.card}>
+        <div style={right}>
+          <div className="tm-card-hover" style={freeStyles.card}>
             <div style={freeStyles.cardHead}>
               <div>
                 <div style={freeStyles.cardEyebrow}>RESILIENCY FOR YOU</div>

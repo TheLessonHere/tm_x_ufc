@@ -1,10 +1,28 @@
 import { useRef, useState } from 'react'
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function VideoIntro() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [playing, setPlaying] = useState(false)
+
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...videoStyles.section,
+    padding: mobile ? `0 ${padX}px 64px` : narrow ? `0 ${padX}px 72px` : '0 64px 96px',
+  }
+  const card: CSSProperties = {
+    ...videoStyles.card,
+    gridTemplateColumns: narrow ? '1fr' : '1fr 1.1fr',
+    gap: mobile ? 28 : 48,
+    padding: mobile ? 24 : narrow ? 36 : 48,
+  }
+  const h3: CSSProperties = { ...videoStyles.h3, fontSize: mobile ? 28 : 36 }
 
   const play = () => {
     const video = videoRef.current
@@ -14,12 +32,12 @@ export default function VideoIntro() {
   }
 
   return (
-    <section style={videoStyles.section} data-screen-label="06 Video Intro">
+    <section style={section} data-screen-label="06 Video Intro">
       <div style={videoStyles.inner}>
-        <div style={videoStyles.card}>
+        <div style={card} data-reveal>
           <div style={videoStyles.left}>
             <div style={videoStyles.eyebrow}>BRIEF INTRODUCTION · 2 MIN</div>
-            <h3 style={videoStyles.h3}>
+            <h3 style={h3}>
               See how it works<br />
               in <span style={videoStyles.accent}>two minutes.</span>
             </h3>
@@ -28,7 +46,7 @@ export default function VideoIntro() {
               through what to expect, how your responses are used, and how the
               continuum works.
             </p>
-            <button style={videoStyles.cta} onClick={play}>
+            <button className="tm-cta" style={videoStyles.cta} onClick={play}>
               <Icon name="play" size={14} color="#fff" />
               Watch the introduction
             </button>

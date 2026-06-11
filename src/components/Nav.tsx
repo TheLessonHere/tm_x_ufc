@@ -1,24 +1,32 @@
 import type { CSSProperties } from 'react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function Nav() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
   return (
-    <nav style={navStyles.bar}>
+    <nav style={{ ...navStyles.bar, padding: `0 ${padX}px` }}>
       <a style={navStyles.brand} href="#top">
         <img src="/assets/ufc-logo-purple.png" alt="Utah Foster Care" style={navStyles.ufcLogo} />
         <span style={navStyles.x}>×</span>
         <img src="/assets/tm-glyph-green.png" alt="" style={navStyles.tmGlyph} />
-        <span style={navStyles.tmWord}>Terrace Metrics</span>
+        {!mobile && <span style={navStyles.tmWord}>Terrace Metrics</span>}
       </a>
-      <div style={navStyles.links}>
-        <a style={navStyles.link} href="#about">About</a>
-        <a style={navStyles.link} href="#families">For Families</a>
-        <a style={navStyles.link} href="#children">For Children</a>
-        <a style={navStyles.link} href="#science">Science</a>
-        <a style={navStyles.link} href="#path">Your Path</a>
-      </div>
+      {!narrow && (
+        <div style={navStyles.links}>
+          <a style={navStyles.link} href="#about">About</a>
+          <a style={navStyles.link} href="#families">For Families</a>
+          <a style={navStyles.link} href="#children">For Children</a>
+          <a style={navStyles.link} href="#science">Science</a>
+          <a style={navStyles.link} href="#path">Your Path</a>
+        </div>
+      )}
       <div style={navStyles.right}>
-        <span style={navStyles.login}>Login</span>
-        <button style={navStyles.cta}>Get started for free</button>
+        {!mobile && <span style={navStyles.login}>Login</span>}
+        <button className="tm-cta" style={navStyles.cta}>{mobile ? 'Get started' : 'Get started for free'}</button>
       </div>
     </nav>
   )
@@ -46,6 +54,6 @@ const navStyles: Record<string, CSSProperties> = {
     background: 'var(--tm-green)', color: '#fff', border: 'none',
     borderRadius: 999, padding: '11px 22px',
     fontSize: 14, fontWeight: 500, cursor: 'pointer',
-    fontFamily: 'var(--tm-sans)',
+    fontFamily: 'var(--tm-sans)', whiteSpace: 'nowrap',
   },
 }

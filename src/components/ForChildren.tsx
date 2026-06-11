@@ -1,12 +1,27 @@
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function ForChildren() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section = { ...childrenStyles.section, padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px` }
+  const h2 = { ...childrenStyles.h2, fontSize: mobile ? 28 : narrow ? 38 : 48 }
+  const grid = {
+    ...childrenStyles.grid,
+    gridTemplateColumns: narrow ? '1fr' : '1fr 1.05fr',
+    marginTop: mobile ? 40 : 64,
+  }
+  const card = { ...childrenStyles.card, padding: mobile ? 26 : 40 }
+
   return (
-    <section style={childrenStyles.section} data-screen-label="04 For Children">
-      <div style={childrenStyles.inner}>
+    <section style={section} data-screen-label="04 For Children">
+      <div style={childrenStyles.inner} data-reveal-stagger>
         <div style={childrenStyles.eyebrow}>FOR FOSTER CHILDREN — AGES 8+</div>
-        <h2 style={childrenStyles.h2}>
+        <h2 style={h2}>
           A path forward for your child,<br />
           and the <span style={childrenStyles.accent}>insight</span> to walk it with them.
         </h2>
@@ -17,9 +32,9 @@ export default function ForChildren() {
           profile, not general advice.
         </p>
 
-        <div style={childrenStyles.grid}>
+        <div style={grid}>
           {/* Child card */}
-          <div style={childrenStyles.card}>
+          <div className="tm-card-hover" style={card}>
             <div style={childrenStyles.cardEyebrow}>FOR YOUR CHILD</div>
             <div style={childrenStyles.illust}>
               <img
@@ -45,7 +60,7 @@ export default function ForChildren() {
           </div>
 
           {/* Parent card */}
-          <div style={{ ...childrenStyles.card, boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
+          <div className="tm-card-hover" style={{ ...card, boxShadow: '0 4px 24px rgba(0,0,0,0.08)' }}>
             <div style={childrenStyles.cardEyebrow}>FOR YOU AS THE PARENT</div>
             <div style={childrenStyles.illust}>
               <img
@@ -54,7 +69,7 @@ export default function ForChildren() {
                 style={childrenStyles.illustImg}
               />
             </div>
-            <div style={{ ...childrenStyles.cardTitle, fontSize: 28, marginTop: 28 }}>
+            <div style={{ ...childrenStyles.cardTitle, fontSize: mobile ? 24 : 28, marginTop: 28 }}>
               Concrete insight into how to support them
             </div>
             <p style={childrenStyles.parentLead}>
@@ -78,7 +93,7 @@ export default function ForChildren() {
                 </div>
               ))}
             </div>
-            <button style={childrenStyles.parentBtn}>Start your family's journey →</button>
+            <button className="tm-cta" style={childrenStyles.parentBtn}>Start your family's journey →</button>
           </div>
         </div>
       </div>

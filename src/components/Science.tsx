@@ -1,4 +1,6 @@
 import type { CSSProperties } from 'react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
+import CountUp from './CountUp'
 
 export default function Science() {
   const pillars = [
@@ -7,13 +9,42 @@ export default function Science() {
     { n: '03', t: 'Professional outcomes', d: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.' },
     { n: '04', t: 'Whole-life outcomes', d: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.' },
   ]
+
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...scienceStyles.section,
+    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+  }
+  const top: CSSProperties = {
+    ...scienceStyles.top,
+    gridTemplateColumns: narrow ? '1fr' : '1.2fr 1fr',
+    gap: mobile ? 24 : narrow ? 40 : 64,
+  }
+  const h2: CSSProperties = { ...scienceStyles.h2, fontSize: mobile ? 28 : narrow ? 36 : 46 }
+  const pillarRow: CSSProperties = {
+    ...scienceStyles.pillarRow,
+    gridTemplateColumns: mobile ? '1fr' : narrow ? 'repeat(2, 1fr)' : 'repeat(4, 1fr)',
+    marginTop: mobile ? 48 : 72,
+  }
+  const statBand: CSSProperties = {
+    ...scienceStyles.statBand,
+    gridTemplateColumns: narrow ? 'repeat(2, 1fr)' : '1fr auto 1fr auto 1fr auto 1fr',
+    gap: narrow ? '28px 16px' : 0,
+    padding: mobile ? '32px 24px' : '40px 48px',
+  }
+  const statN: CSSProperties = { ...scienceStyles.statN, fontSize: mobile ? 38 : 48 }
+
   return (
-    <section style={scienceStyles.section} data-screen-label="05 Science">
+    <section style={section} data-screen-label="05 Science">
       <div style={scienceStyles.inner}>
-        <div style={scienceStyles.top}>
+        <div style={top} data-reveal>
           <div style={scienceStyles.left}>
             <div style={scienceStyles.eyebrow}>THE SCIENCE OF RESILIENCE</div>
-            <h2 style={scienceStyles.h2}>
+            <h2 style={h2}>
               Resilience isn't a wellness concept.<br />
               It's one of the <span style={scienceStyles.accent}>strongest predictors</span>
               <br />of long-term outcomes.
@@ -33,7 +64,7 @@ export default function Science() {
           </div>
         </div>
 
-        <div style={scienceStyles.pillarRow}>
+        <div style={pillarRow} data-reveal-stagger>
           {pillars.map((p) => (
             <div key={p.n} style={scienceStyles.pillar}>
               <div style={scienceStyles.pillarN}>{p.n}</div>
@@ -43,24 +74,24 @@ export default function Science() {
           ))}
         </div>
 
-        <div style={scienceStyles.statBand}>
+        <div style={statBand} data-reveal>
           <div style={scienceStyles.statBlock}>
-            <div style={scienceStyles.statN}>20+</div>
+            <div style={statN}><CountUp to={20} suffix="+" /></div>
             <div style={scienceStyles.statL}>Years of validated research</div>
           </div>
-          <div style={scienceStyles.statDivider} />
+          {!narrow && <div style={scienceStyles.statDivider} />}
           <div style={scienceStyles.statBlock}>
-            <div style={scienceStyles.statN}>5M+</div>
+            <div style={statN}><CountUp to={5} suffix="M+" /></div>
             <div style={scienceStyles.statL}>Individuals assessed</div>
           </div>
-          <div style={scienceStyles.statDivider} />
+          {!narrow && <div style={scienceStyles.statDivider} />}
           <div style={scienceStyles.statBlock}>
-            <div style={scienceStyles.statN}>97%</div>
+            <div style={statN}><CountUp to={97} suffix="%" /></div>
             <div style={scienceStyles.statL}>Report actionable insight</div>
           </div>
-          <div style={scienceStyles.statDivider} />
+          {!narrow && <div style={scienceStyles.statDivider} />}
           <div style={scienceStyles.statBlock}>
-            <div style={scienceStyles.statN}>40+</div>
+            <div style={statN}><CountUp to={40} suffix="+" /></div>
             <div style={scienceStyles.statL}>Peer-reviewed citations</div>
           </div>
         </div>

@@ -1,7 +1,23 @@
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function Continuum() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...continuumStyles.section,
+    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+  }
+  const h2: CSSProperties = { ...continuumStyles.h2, fontSize: mobile ? 30 : narrow ? 38 : 50 }
+  const grid: CSSProperties = {
+    ...continuumStyles.grid,
+    gridTemplateColumns: mobile ? '1fr' : narrow ? '1fr 1fr' : '1fr 1fr 1fr 1fr',
+  }
+
   const zones = [
     {
       label: 'Optimal',
@@ -34,13 +50,13 @@ export default function Continuum() {
   ]
 
   return (
-    <section style={continuumStyles.section} data-screen-label="08 Resilience Continuum">
+    <section style={section} data-screen-label="08 Resilience Continuum">
       <div style={continuumStyles.inner}>
         <div style={continuumStyles.eyebrow}>HOW WE READ YOUR RESULTS</div>
-        <h2 style={continuumStyles.h2}>
+        <h2 style={h2} data-reveal>
           A mirror <span style={continuumStyles.accent}>for success.</span>
         </h2>
-        <p style={continuumStyles.sub}>
+        <p style={continuumStyles.sub} data-reveal>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit — your check-in
           places you somewhere on a continuum, not in a category.
         </p>
@@ -60,7 +76,7 @@ export default function Continuum() {
           </div>
         </div>
 
-        <div style={continuumStyles.grid}>
+        <div style={grid} data-reveal-stagger>
           {zones.map((z) => (
             <div key={z.label} style={{ ...continuumStyles.zone, background: z.bg, borderColor: z.c + '33' }}>
               <div style={continuumStyles.zoneTop}>
@@ -73,7 +89,7 @@ export default function Continuum() {
           ))}
         </div>
 
-        <div style={continuumStyles.note}>
+        <div style={continuumStyles.note} data-reveal>
           <Icon name="shield" size={16} color="var(--tm-purple)" />
           <span>
             <strong style={continuumStyles.noteStrong}>This is not a diagnosis.</strong>

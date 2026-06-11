@@ -1,9 +1,53 @@
+import { useEffect, useState } from 'react'
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
+
+const TARGETS = { a: 78, b: 82, c: 54 }
+const MARKER_END = '62%'
 
 export default function HeroWidget() {
+  const mobile = useBreakpoint() === 'mobile'
+  const surface: CSSProperties = {
+    ...hwStyles.surface,
+    width: '100%',
+    maxWidth: 460,
+    padding: mobile ? 20 : 28,
+  }
+
+  const reduceMotion =
+    typeof window !== 'undefined' && window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
+  const [score, setScore] = useState(() => (reduceMotion ? TARGETS : { a: 0, b: 0, c: 0 }))
+  const [markerLeft, setMarkerLeft] = useState(reduceMotion ? MARKER_END : '0%')
+
+  useEffect(() => {
+    if (reduceMotion) return
+    const slide = requestAnimationFrame(() => setMarkerLeft(MARKER_END))
+
+    const start = performance.now()
+    const dur = 1700
+    let raf = 0
+    const step = (t: number) => {
+      const k = Math.min(1, (t - start) / dur)
+      const e = 1 - Math.pow(1 - k, 3)
+      setScore({
+        a: Math.round(TARGETS.a * e),
+        b: Math.round(TARGETS.b * e),
+        c: Math.round(TARGETS.c * e),
+      })
+      if (k < 1) raf = requestAnimationFrame(step)
+    }
+    raf = requestAnimationFrame(step)
+
+    return () => {
+      cancelAnimationFrame(raf)
+      cancelAnimationFrame(slide)
+    }
+  }, [reduceMotion])
+
   return (
-    <div style={hwStyles.surface}>
+    <div style={surface}>
       <div style={hwStyles.head}>
         <div>
           <div style={hwStyles.eyebrow}>YOUR CHECK-IN</div>
@@ -14,9 +58,9 @@ export default function HeroWidget() {
 
       <div style={hwStyles.row}>
         {[
-          { v: 78, l: 'Caregiver Wellbeing', b: 'STRONG', c: '#7adb8a', bg: '#1e3d2a' },
-          { v: 82, l: 'Family Resilience', b: 'SATISFACTORY', c: '#7adb8a', bg: '#1e3d2a' },
-          { v: 54, l: 'Stress Load', b: 'ELEVATED', c: '#e8a020', bg: '#3a2a10' },
+          { v: score.a, l: 'Caregiver Wellbeing', b: 'STRONG', c: '#7adb8a', bg: '#1e3d2a' },
+          { v: score.b, l: 'Family Resilience', b: 'SATISFACTORY', c: '#7adb8a', bg: '#1e3d2a' },
+          { v: score.c, l: 'Stress Load', b: 'ELEVATED', c: '#e8a020', bg: '#3a2a10' },
         ].map((t, i) => (
           <div key={i} style={hwStyles.tile}>
             <div style={{ ...hwStyles.score, color: t.c }}>{t.v}</div>
@@ -29,7 +73,13 @@ export default function HeroWidget() {
       <div style={hwStyles.section}>
         <div style={hwStyles.micro}>YOUR RESILIENCE CONTINUUM</div>
         <div style={hwStyles.bar}>
-          <div style={hwStyles.dot} />
+          <div
+            style={{
+              ...hwStyles.dot,
+              left: markerLeft,
+              transition: 'left 1700ms cubic-bezier(0.22,0.61,0.36,1)',
+            }}
+          />
         </div>
         <div style={hwStyles.spectrumLabels}>
           <span>May need assistance</span>

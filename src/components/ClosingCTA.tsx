@@ -1,11 +1,23 @@
 import type { CSSProperties } from 'react'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function ClosingCTA() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...closingStyles.section,
+    padding: `${mobile ? 80 : narrow ? 100 : 140}px ${padX}px`,
+  }
+  const h2: CSSProperties = { ...closingStyles.h2, fontSize: mobile ? 32 : narrow ? 46 : 64 }
+
   return (
-    <section style={closingStyles.section} data-screen-label="10 You Matter Too">
-      <div style={closingStyles.inner}>
+    <section style={section} data-screen-label="10 You Matter Too">
+      <div style={closingStyles.inner} data-reveal-stagger>
         <div style={closingStyles.eyebrow}>YOU MATTER TOO</div>
-        <h2 style={closingStyles.h2}>
+        <h2 style={h2}>
           This is your moment to pause,<br />
           breathe, and <span style={closingStyles.accent}>take care of you.</span>
         </h2>
@@ -14,8 +26,8 @@ export default function ClosingCTA() {
           you need it.
         </p>
         <div style={closingStyles.ctas}>
-          <button style={closingStyles.primary}>Start your check-in →</button>
-          <button style={closingStyles.secondary}>Talk to Utah Foster Care</button>
+          <button className="tm-cta" style={closingStyles.primary}>Start your check-in →</button>
+          <button className="tm-cta" style={closingStyles.secondary}>Talk to Utah Foster Care</button>
         </div>
         <div style={closingStyles.foot}>
           Free for Utah foster families  ·  10 minutes  ·  Your data is private

@@ -1,7 +1,23 @@
 import type { CSSProperties } from 'react'
 import Icon from './Icon'
+import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function YourPath() {
+  const bp = useBreakpoint()
+  const mobile = bp === 'mobile'
+  const narrow = bp !== 'desktop'
+  const padX = mobile ? 22 : narrow ? 40 : 64
+
+  const section: CSSProperties = {
+    ...pathStyles.section,
+    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+  }
+  const head: CSSProperties = { ...pathStyles.head, marginBottom: mobile ? 48 : 80 }
+  const h2: CSSProperties = { ...pathStyles.h2, fontSize: mobile ? 30 : narrow ? 38 : 50 }
+  const rail: CSSProperties = { ...pathStyles.rail, gap: mobile ? 56 : narrow ? 72 : 96 }
+  const stepT: CSSProperties = { ...pathStyles.stepT, fontSize: mobile ? 27 : 36 }
+  const ctaWrap: CSSProperties = { ...pathStyles.ctaWrap, marginTop: mobile ? 56 : 96 }
+
   const steps = [
     {
       n: '01',
@@ -33,11 +49,11 @@ export default function YourPath() {
     },
   ]
   return (
-    <section style={pathStyles.section} data-screen-label="07 Your Path">
+    <section style={section} data-screen-label="07 Your Path">
       <div style={pathStyles.inner}>
-        <div style={pathStyles.head}>
+        <div style={head} data-reveal>
           <div style={pathStyles.eyebrow}>HOW IT WORKS</div>
-          <h2 style={pathStyles.h2}>
+          <h2 style={h2}>
             Your path to stronger resilience<br />
             <span style={pathStyles.accent}>starts here.</span>
           </h2>
@@ -47,23 +63,24 @@ export default function YourPath() {
           </p>
         </div>
 
-        <div style={pathStyles.rail}>
+        <div style={rail}>
           {steps.map((s, i) => {
             const flip = i % 2 === 1
             return (
               <div key={s.n} style={{
                 ...pathStyles.row,
-                gridTemplateColumns: flip ? '1.1fr 1fr' : '1fr 1.1fr',
-              }}>
+                gridTemplateColumns: narrow ? '1fr' : flip ? '1.1fr 1fr' : '1fr 1.1fr',
+                gap: mobile ? 28 : narrow ? 40 : 64,
+              }} data-reveal>
                 <div style={{
                   ...pathStyles.copy,
-                  order: flip ? 2 : 1,
+                  order: narrow ? 2 : flip ? 2 : 1,
                 }}>
                   <div style={pathStyles.numRow}>
                     <span style={pathStyles.num}>{s.n}</span>
                     <span style={pathStyles.numLine} />
                   </div>
-                  <h3 style={pathStyles.stepT}>{s.t}</h3>
+                  <h3 style={stepT}>{s.t}</h3>
                   <p style={pathStyles.stepD}>{s.d}</p>
                   <ul style={pathStyles.list}>
                     {s.bullets.map((b) => (
@@ -76,7 +93,7 @@ export default function YourPath() {
                 </div>
                 <div style={{
                   ...pathStyles.shot,
-                  order: flip ? 1 : 2,
+                  order: narrow ? 1 : flip ? 1 : 2,
                 }}>
                   <MockScreen kind={s.mock} />
                 </div>
@@ -85,8 +102,8 @@ export default function YourPath() {
           })}
         </div>
 
-        <div style={pathStyles.ctaWrap}>
-          <button style={pathStyles.cta}>Start your free resiliency journey →</button>
+        <div style={ctaWrap}>
+          <button className="tm-cta" style={pathStyles.cta}>Start your free resiliency journey →</button>
           <div style={pathStyles.reassure}>No subscription · Cancel anytime · Your data is private</div>
         </div>
       </div>

@@ -312,6 +312,14 @@
   resolved "https://registry.yarnpkg.com/@esbuild/win32-x64/-/win32-x64-0.27.7.tgz#8fe30b3088b89b4873c3a6cc87597ae3920c0a8b"
   integrity sha512-56hiAJPhwQ1R4i+21FVF7V8kSD5zZTdHcVuRFMW0hn753vVfQN8xlx4uOPT4xoGH0Z/oVATuR82AiqSTDIpaHg==
 
+"@gsap/react@2.1.1":
+  version "2.1.1"
+  resolved "https://registry.yarnpkg.com/@gsap/react/-/react-2.1.1.tgz#219a81c84f93a2631c8aa324c0f5cce03cdf2ed9"
+  integrity sha512-apGPRrmpqxvl1T6Io1KgT8tFU+IuACI6z4zmT7t8+PASserJeLVRFJdSNUFA2Xb/eVkZI1noE8LIrY/w/oJECw==
+  dependencies:
+    gsap "^3.12.5"
+    react ">=16"
+
 "@jridgewell/gen-mapping@^0.3.12", "@jridgewell/gen-mapping@^0.3.5":
   version "0.3.13"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.13.tgz#6342a19f44347518c93e43b1ac69deb3c4656a1f"
@@ -779,6 +787,16 @@ graceful-fs@^4.2.4:
   resolved "https://registry.yarnpkg.com/graceful-fs/-/graceful-fs-4.2.11.tgz#4183e4e8bf08bb6e05bbb2f7d2e0c8f712ca40e3"
   integrity sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==
 
+gsap@3.12.5:
+  version "3.12.5"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.12.5.tgz#136c02dad4c673b441bdb1ca00104bfcb4eae7f4"
+  integrity sha512-srBfnk4n+Oe/ZnMIOXt3gT605BX9x5+rh/prT2F1SsNJsU1XuMiP0E2aptW481OnonOGACZWBqseH5Z7csHxhQ==
+
+gsap@^3.12.5:
+  version "3.15.0"
+  resolved "https://registry.yarnpkg.com/gsap/-/gsap-3.15.0.tgz#7851baaffc77642f2db3b1749d3634f9b5a19d14"
+  integrity sha512-dMW4CWBTUK1AEEDeZc1g4xpPGIrSf9fJF960qbTZmN/QwZIWY5wgliS6JWl9/25fpTGJrMRtSjGtOmPnfjZB+A==
+
 jiti@^2.6.1:
   version "2.7.0"
   resolved "https://registry.yarnpkg.com/jiti/-/jiti-2.7.0.tgz#974228f2f4ca2bc21885a1797b45fea68e950c64"
@@ -933,7 +951,7 @@ react-refresh@^0.17.0:
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.17.0.tgz#b7e579c3657f23d04eccbe4ad2e58a8ed51e7e53"
   integrity sha512-z6F7K9bV85EfseRCp2bzrpyQ0Gkw1uLoCel9XBVWPg/TjRj94SkJzUTGfOa4bs7iJvBWtQG0Wq7wnI0syw3EBQ==
 
-react@^19.1.0:
+react@>=16, react@^19.1.0:
   version "19.2.7"
   resolved "https://registry.yarnpkg.com/react/-/react-19.2.7.tgz#1f47a1bfc06f8ec885752c6f4af14369a9f8260b"
   integrity sha512-HNe9WslTbXmFK8o8cmwgAeJFSBvt1bPdHCVKtaaV+WlAN36mpT4hcRpwbf3fY56ar2oIXzsBpOAiIRHAdY0OlQ==
