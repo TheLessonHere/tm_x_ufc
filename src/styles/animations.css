@@ -66,6 +66,27 @@
   filter: brightness(0.98);
 }
 
+/* --- Nav link: purple underline wipes in from the left on hover --- */
+.nav-link {
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -6px;
+  height: 2px;
+  background: var(--tm-purple);
+  border-radius: 999px;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 220ms var(--tm-ease, ease);
+}
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
 /* --- Quiet link nudge (text/ghost buttons) --- */
 .tm-link-nudge {
   transition: transform 200ms var(--tm-ease, ease), opacity 200ms var(--tm-ease, ease);
@@ -84,7 +105,8 @@
   }
   .tm-card-hover,
   .tm-cta,
-  .tm-link-nudge {
+  .tm-link-nudge,
+  .nav-link::after {
     transition: none;
   }
   .tm-card-hover:hover,

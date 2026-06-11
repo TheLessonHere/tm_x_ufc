@@ -32,7 +32,7 @@ export default function VideoIntro() {
   }
 
   return (
-    <section style={section} data-screen-label="06 Video Intro">
+    <section id="about" style={section} data-screen-label="06 Video Intro">
       <div style={videoStyles.inner}>
         <div style={card} data-reveal>
           <div style={videoStyles.left}>

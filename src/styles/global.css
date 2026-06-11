@@ -7,6 +7,10 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   margin: 0;
@@ -15,9 +19,19 @@ body {
 
 body {
   background: var(--tm-bg);
-  scroll-behavior: smooth;
   /* Guard against any residual fixed widths causing a horizontal scrollbar. */
   overflow-x: hidden;
+}
+
+/* Anchored sections land below the 72px sticky nav, not under it. */
+section[id] {
+  scroll-margin-top: 84px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 #root {

@@ -18,7 +18,7 @@ export default function ForChildren() {
   const card = { ...childrenStyles.card, padding: mobile ? 26 : 40 }
 
   return (
-    <section style={section} data-screen-label="04 For Children">
+    <section id="children" style={section} data-screen-label="04 For Children">
       <div style={childrenStyles.inner} data-reveal-stagger>
         <div style={childrenStyles.eyebrow}>FOR FOSTER CHILDREN — AGES 8+</div>
         <h2 style={h2}>

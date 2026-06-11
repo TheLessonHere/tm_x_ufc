@@ -58,7 +58,7 @@ export default function Hero() {
   const h1: CSSProperties = { ...heroStyles.h1, fontSize: mobile ? 34 : narrow ? 46 : 60 }
 
   return (
-    <section ref={root} style={section} data-screen-label="01 Hero">
+    <section ref={root} id="top" style={section} data-screen-label="01 Hero">
       <div style={inner}>
         <div style={heroStyles.left}>
           <div className="hero-pill" style={heroStyles.partnerRow}>

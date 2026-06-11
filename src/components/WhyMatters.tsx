@@ -14,7 +14,7 @@ export default function WhyMatters() {
   const h3 = { ...whyStyles.h3, fontSize: mobile ? 27 : 34 }
 
   return (
-    <section style={section} data-screen-label="03 Why It Matters">
+    <section id="families" style={section} data-screen-label="03 Why It Matters">
       <div style={whyStyles.inner}>
         <div style={grid} data-reveal>
           {/* LEFT — Why it matters */}

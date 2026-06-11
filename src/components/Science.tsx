@@ -39,7 +39,7 @@ export default function Science() {
   const statN: CSSProperties = { ...scienceStyles.statN, fontSize: mobile ? 38 : 48 }
 
   return (
-    <section style={section} data-screen-label="05 Science">
+    <section id="science" style={section} data-screen-label="05 Science">
       <div style={scienceStyles.inner}>
         <div style={top} data-reveal>
           <div style={scienceStyles.left}>

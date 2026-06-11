@@ -49,7 +49,7 @@ export default function YourPath() {
     },
   ]
   return (
-    <section style={section} data-screen-label="07 Your Path">
+    <section id="path" style={section} data-screen-label="07 Your Path">
       <div style={pathStyles.inner}>
         <div style={head} data-reveal>
           <div style={pathStyles.eyebrow}>HOW IT WORKS</div>

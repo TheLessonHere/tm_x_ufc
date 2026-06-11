@@ -17,11 +17,17 @@ export default function Nav() {
       </a>
       {!narrow && (
         <div style={navStyles.links}>
-          <a style={navStyles.link} href="#about">About</a>
-          <a style={navStyles.link} href="#families">For Families</a>
-          <a style={navStyles.link} href="#children">For Children</a>
-          <a style={navStyles.link} href="#science">Science</a>
-          <a style={navStyles.link} href="#path">Your Path</a>
+          {[
+            { href: '#families', label: 'For Families' },
+            { href: '#children', label: 'For Children' },
+            { href: '#science', label: 'Science' },
+            { href: '#about', label: 'About' },
+            { href: '#path', label: 'Your Path' },
+          ].map((l) => (
+            <a key={l.href} className="nav-link" style={navStyles.link} href={l.href}>
+              {l.label}
+            </a>
+          ))}
         </div>
       )}
       <div style={navStyles.right}>
