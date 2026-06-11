@@ -91,7 +91,7 @@ export default function HeroWidget() {
 
       <div style={hwStyles.viewLink}>
         <Icon name="plus" size={16} color="#7adb8a" />
-        <span>Lorem ipsum dolor sit amet</span>
+        <span>View Individual Indicators</span>
       </div>
 
       <div style={{ ...hwStyles.micro, marginTop: 22 }}>FOCUS AREAS</div>
