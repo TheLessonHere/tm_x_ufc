@@ -33,9 +33,12 @@ const ICONS: Record<string, string> = {
   family:
     'M9 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M15 11a3 3 0 1 0 0-6 3 3 0 0 0 0 6z M6 21v-3a3 3 0 0 1 3-3 M15 21v-3a3 3 0 0 1 3-3 M12 21v-5',
   chevron: 'M6 9l6 6 6-6',
+  menu: 'M4 6h16 M4 12h16 M4 18h16',
+  close: 'M18 6L6 18 M6 6l12 12',
   lock: 'M5 11h14v10H5z M8 11V7a4 4 0 0 1 8 0v4',
   graph: 'M3 3v18h18 M19 17l-6-6-4 4-4-4',
   message: 'M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z',
+  mail: 'M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z M22 6l-10 7L2 6',
 }
 
 type IconProps = {

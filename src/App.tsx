@@ -1,33 +1,12 @@
-import { useReveal } from './hooks/useReveal'
-import Nav from './components/Nav'
-import Hero from './components/Hero'
-import Mission from './components/Mission'
-import WhyMatters from './components/WhyMatters'
-import ForChildren from './components/ForChildren'
-import Science from './components/Science'
-import VideoIntro from './components/VideoIntro'
-import YourPath from './components/YourPath'
-import Continuum from './components/Continuum'
-import FreeAccess from './components/FreeAccess'
-import ClosingCTA from './components/ClosingCTA'
-import Footer from './components/Footer'
+import { Routes, Route } from 'react-router-dom'
+import LandingPage from './pages/LandingPage'
+import LoginPage from './pages/LoginPage'
 
 export default function App() {
-  useReveal()
   return (
-    <>
-      <Nav />
-      <Hero />
-      <Mission />
-      <WhyMatters />
-      <ForChildren />
-      <Science />
-      <VideoIntro />
-      <YourPath />
-      <Continuum />
-      <FreeAccess />
-      <ClosingCTA />
-      <Footer />
-    </>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/login" element={<LoginPage />} />
+    </Routes>
   )
 }

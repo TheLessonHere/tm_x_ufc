@@ -79,7 +79,13 @@ export default function Hero() {
           </p>
           <div className="hero-cta" style={heroStyles.ctas}>
             <button className="tm-cta" style={heroStyles.primary}>Start your free resiliency journey →</button>
-            <button className="tm-cta" style={heroStyles.secondary}>Watch a brief intro</button>
+            <button
+              className="tm-cta"
+              style={heroStyles.secondary}
+              onClick={() => document.getElementById('about')?.scrollIntoView()}
+            >
+              Watch a brief intro
+            </button>
           </div>
           <div style={heroStyles.trust}>
             {[

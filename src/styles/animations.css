@@ -87,6 +87,39 @@
   transform: scaleX(1);
 }
 
+/* --- Mobile nav dropdown panel --- */
+.nav-mobile-panel {
+  animation: tm-nav-panel 240ms cubic-bezier(0.22, 0.61, 0.36, 1) both;
+}
+@keyframes tm-nav-panel {
+  from { opacity: 0; transform: translateY(-8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.nav-mobile-link {
+  transition: color 180ms var(--tm-ease, ease), background 180ms var(--tm-ease, ease);
+}
+.nav-mobile-link:hover {
+  color: var(--tm-purple);
+  background: var(--tm-purple-light);
+}
+
+/* --- Text link that warms to purple on hover --- */
+.tm-purple-hover {
+  transition: color 180ms var(--tm-ease, ease);
+}
+.tm-purple-hover:hover {
+  color: var(--tm-purple);
+}
+
+/* --- Login email input focus ring --- */
+.login-input {
+  transition: border-color 180ms var(--tm-ease, ease), box-shadow 180ms var(--tm-ease, ease);
+}
+.login-input:focus {
+  border-color: var(--tm-purple);
+  box-shadow: 0 0 0 3px rgba(85, 36, 102, 0.12);
+}
+
 /* --- Quiet link nudge (text/ghost buttons) --- */
 .tm-link-nudge {
   transition: transform 200ms var(--tm-ease, ease), opacity 200ms var(--tm-ease, ease);
@@ -106,8 +139,14 @@
   .tm-card-hover,
   .tm-cta,
   .tm-link-nudge,
-  .nav-link::after {
+  .nav-link::after,
+  .nav-mobile-link,
+  .tm-purple-hover,
+  .login-input {
     transition: none;
+  }
+  .nav-mobile-panel {
+    animation: none;
   }
   .tm-card-hover:hover,
   .tm-cta:hover,
