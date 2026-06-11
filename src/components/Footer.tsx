@@ -4,7 +4,6 @@ import { useBreakpoint } from '../hooks/useBreakpoint'
 
 export default function Footer() {
   const cols = [
-    { h: 'PROGRAM', l: ['About the partnership', 'For caregivers', 'For children (8+)', 'Workshops'] },
     { h: 'RESOURCES', l: ['Help center', 'The science', 'FAQ', 'Contact a specialist'] },
     { h: 'UTAH FOSTER CARE', l: ['Become a foster family', 'Training', 'Events', 'Donate'] },
     { h: 'LEGAL', l: ['Privacy', 'Terms', 'Accessibility', 'Data practices'] },
@@ -21,7 +20,7 @@ export default function Footer() {
   }
   const inner: CSSProperties = {
     ...footStyles.inner,
-    gridTemplateColumns: mobile ? '1fr 1fr' : narrow ? 'repeat(3, 1fr)' : '1.7fr 1fr 1fr 1fr 1fr',
+    gridTemplateColumns: mobile ? '1fr 1fr' : narrow ? 'repeat(3, 1fr)' : '1.7fr 1fr 1fr 1fr',
     gap: mobile ? 32 : narrow ? 40 : 56,
   }
   const brandCol: CSSProperties = { ...footStyles.brandCol, gridColumn: narrow ? '1 / -1' : 'auto' }
