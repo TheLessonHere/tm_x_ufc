@@ -23,9 +23,9 @@ body {
   overflow-x: hidden;
 }
 
-/* Anchored sections land below the 72px sticky nav, not under it. */
+/* Anchored sections land just below the 72px sticky nav. */
 section[id] {
-  scroll-margin-top: 84px;
+  scroll-margin-top: 72px;
 }
 
 @media (prefers-reduced-motion: reduce) {
