@@ -10,7 +10,7 @@ export default function FreeAccess() {
 
   const section: CSSProperties = {
     ...freeStyles.section,
-    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+    padding: `${mobile ? 64 : narrow ? 80 : 88}px ${padX}px`,
   }
   const inner: CSSProperties = {
     ...freeStyles.inner,
@@ -34,9 +34,8 @@ export default function FreeAccess() {
             <span style={freeStyles.accent}>Access now.</span>
           </h2>
           <p style={freeStyles.body}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit — your license is
-            covered through the Utah Foster Care partnership. Sed do eiusmod tempor
-            incididunt ut labore.
+            Your license is fully covered through the Utah Foster Care partnership. Every
+            foster family has a personalized path to stronger resilience — at no cost.
           </p>
           <div style={freeStyles.ctas}>
             <button className="tm-cta" style={freeStyles.primary}>Get free access →</button>

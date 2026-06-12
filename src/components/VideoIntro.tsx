@@ -14,7 +14,7 @@ export default function VideoIntro() {
 
   const section: CSSProperties = {
     ...videoStyles.section,
-    padding: mobile ? `0 ${padX}px 64px` : narrow ? `0 ${padX}px 72px` : '0 64px 96px',
+    padding: mobile ? `0 ${padX}px 64px` : narrow ? `0 ${padX}px 72px` : '0 64px 72px',
   }
   const card: CSSProperties = {
     ...videoStyles.card,
@@ -42,9 +42,8 @@ export default function VideoIntro() {
               in <span style={videoStyles.accent}>two minutes.</span>
             </h3>
             <p style={videoStyles.body}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit — a quick walk
-              through what to expect, how your responses are used, and how the
-              continuum works.
+              A quick walk through what to expect, how your responses are used, and how
+              the resilience continuum works.
             </p>
             <button className="tm-cta" style={videoStyles.cta} onClick={play}>
               <Icon name="play" size={14} color="#fff" />

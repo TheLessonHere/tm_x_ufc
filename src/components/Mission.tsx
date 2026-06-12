@@ -9,7 +9,7 @@ export default function Mission() {
 
   const section: CSSProperties = {
     ...missionStyles.section,
-    padding: `${mobile ? 64 : narrow ? 72 : 96}px ${padX}px`,
+    padding: `${mobile ? 64 : narrow ? 72 : 72}px ${padX}px`,
   }
   const h2: CSSProperties = { ...missionStyles.h2, fontSize: mobile ? 30 : narrow ? 40 : 52 }
 
@@ -22,18 +22,17 @@ export default function Mission() {
           taking care of <span style={missionStyles.accent}>you.</span>
         </h2>
         <p style={missionStyles.lead}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-          tempor incididunt ut labore et dolore magna aliqua — foster parenting is
-          incredibly rewarding, but it can also be hard at times.
+          Foster parenting is meaningful — and it can also be heavy. There are moments
+          when you feel it building, not because something is wrong, but because something
+          inside you needs attention.
         </p>
         <p style={missionStyles.body}>
-          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi
-          ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-          in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+          This space was created for those moments. It's not about fixing yourself or
+          proving your strength — it's simply a chance to pause, reflect, and notice what
+          you've been carrying.
         </p>
         <p style={missionStyles.body}>
-          Excepteur sint occaecat cupidatat non proident — not to fix you or test you,
-          but simply to give you a moment to pause, reflect, and take care of yourself.
+          There's no judgment. No diagnosis. Think of it as a mirror, not a measurement.
         </p>
       </div>
     </section>

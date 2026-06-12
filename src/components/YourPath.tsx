@@ -10,7 +10,7 @@ export default function YourPath() {
 
   const section: CSSProperties = {
     ...pathStyles.section,
-    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+    padding: `${mobile ? 64 : narrow ? 80 : 88}px ${padX}px`,
   }
   const head: CSSProperties = { ...pathStyles.head, marginBottom: mobile ? 48 : 80 }
   const h2: CSSProperties = { ...pathStyles.h2, fontSize: mobile ? 30 : narrow ? 38 : 50 }
@@ -22,28 +22,28 @@ export default function YourPath() {
     {
       n: '01',
       t: 'Create your free account',
-      d: 'Lorem ipsum dolor sit amet — choose the license that fits your household. Foster parents, partner, and children ages 8+.',
+      d: 'Choose the license that fits your household — foster parents, a partner, and children ages 8+. It is free for Utah foster families and takes under a minute.',
       mock: 'license-select',
       bullets: ['Free for Utah foster families', 'Choose adult, child, or whole-family', 'Takes under a minute'],
     },
     {
       n: '02',
       t: 'Invite your family',
-      d: 'Sed do eiusmod tempor incididunt — add your partner and children so each person has their own private check-in.',
+      d: 'Add your partner and children so each person has their own private check-in. Because when one person in the family is struggling, everyone feels it.',
       mock: 'invite',
       bullets: ['Private profiles for each member', 'Optional shared dashboard', 'Add and remove anytime'],
     },
     {
       n: '03',
       t: 'Access self-paced resources',
-      d: 'Duis aute irure dolor in reprehenderit — recommendations tied to your actual profile, with Utah Foster Care support standing alongside.',
+      d: 'Your results connect to support resources and ways to reach Utah Foster Care, plus self-guided curricula and tools — all matched to your actual profile.',
       mock: 'resources',
       bullets: ['Curated to your profile', 'Self-paced curricula', 'Workshops & coaching when you want it'],
     },
     {
       n: '04',
       t: 'Track progress together',
-      d: 'Excepteur sint occaecat cupidatat non proident — retake the check-in every six to eight weeks and watch the continuum move.',
+      d: 'Retake the check-in every six to eight weeks to track and manage improvement, and watch the continuum move as your family grows stronger.',
       mock: 'track',
       bullets: ['Re-check every 6–8 weeks', 'See trends over time', 'Adjust focus as life shifts'],
     },
@@ -58,8 +58,7 @@ export default function YourPath() {
             <span style={pathStyles.accent}>starts here.</span>
           </h2>
           <p style={pathStyles.sub}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit — four steps,
-            no pressure.
+            Four simple steps. No pressure, no expectations — just support when you need it.
           </p>
         </div>
 

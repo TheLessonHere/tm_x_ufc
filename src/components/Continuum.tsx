@@ -10,7 +10,7 @@ export default function Continuum() {
 
   const section: CSSProperties = {
     ...continuumStyles.section,
-    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+    padding: `${mobile ? 64 : narrow ? 80 : 88}px ${padX}px`,
   }
   const h2: CSSProperties = { ...continuumStyles.h2, fontSize: mobile ? 30 : narrow ? 38 : 50 }
   const grid: CSSProperties = {
@@ -24,28 +24,28 @@ export default function Continuum() {
       n: 1, of: 4,
       c: '#1a7a42',
       bg: 'rgba(26,122,66,0.08)',
-      d: 'Lorem ipsum dolor sit amet — operating with strong protective factors and a stable foundation.',
+      d: 'Strengths across all domains with no evidence of adversity. Minimal specific attention likely — capable of fully attending to life goals.',
     },
     {
       label: 'Satisfactory',
       n: 2, of: 4,
       c: '#5ecc72',
       bg: 'rgba(94,204,114,0.08)',
-      d: 'Consectetur adipiscing elit — managing well overall, with room to deepen specific strengths.',
+      d: 'Strengths across many domains with minimal distress. Not likely to require specific attention. Functioning well, but not necessarily excelling.',
     },
     {
       label: 'Slight concern',
       n: 3, of: 4,
       c: '#e8a020',
       bg: 'rgba(232,160,32,0.08)',
-      d: 'Ut enim ad minim veniam — a signal worth noticing, with tools and support recommended.',
+      d: 'Some strengths, but low scores in key indicators. May require some attention, with likely impact on specific areas of life.',
     },
     {
       label: 'May need assistance',
       n: 4, of: 4,
       c: '#c0392b',
       bg: 'rgba(192,57,43,0.08)',
-      d: 'Duis aute irure dolor — direct outreach and support paths from Utah Foster Care.',
+      d: 'Few or no strengths and elevated levels of adversity. Will likely require attention and support — functioning is likely affected, even if not noticeable.',
     },
   ]
 
@@ -54,11 +54,11 @@ export default function Continuum() {
       <div style={continuumStyles.inner}>
         <div style={continuumStyles.eyebrow}>HOW WE READ YOUR RESULTS</div>
         <h2 style={h2} data-reveal>
-          A mirror <span style={continuumStyles.accent}>for success.</span>
+          A mirror, <span style={continuumStyles.accent}>not a measurement.</span>
         </h2>
         <p style={continuumStyles.sub} data-reveal>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit — your check-in
-          places you somewhere on a continuum, not in a category.
+          Your check-in places you somewhere on a continuum, not in a category. There are
+          no right or wrong answers — just a reflection of where things are right now.
         </p>
 
         <div style={continuumStyles.specWrap}>
@@ -93,7 +93,7 @@ export default function Continuum() {
           <Icon name="shield" size={16} color="var(--tm-purple)" />
           <span>
             <strong style={continuumStyles.noteStrong}>This is not a diagnosis.</strong>
-            <span style={continuumStyles.noteRest}>  Lorem ipsum dolor sit amet — there are no right or wrong answers. Think of it as a mirror.</span>
+            <span style={continuumStyles.noteRest}>  There are no right or wrong answers — it's a reflection of what you and your family may be experiencing right now.</span>
           </span>
         </div>
       </div>

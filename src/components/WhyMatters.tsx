@@ -8,7 +8,7 @@ export default function WhyMatters() {
   const narrow = bp !== 'desktop'
   const padX = mobile ? 22 : narrow ? 40 : 64
 
-  const section = { ...whyStyles.section, padding: `${mobile ? 56 : narrow ? 72 : 96}px ${padX}px` }
+  const section = { ...whyStyles.section, padding: `${mobile ? 56 : narrow ? 72 : 72}px ${padX}px` }
   const grid = { ...whyStyles.grid, gridTemplateColumns: narrow ? '1fr' : '1fr 1fr' }
   const card = { ...whyStyles.card, padding: mobile ? 26 : 44 }
   const h3 = { ...whyStyles.h3, fontSize: mobile ? 27 : 34 }
@@ -22,16 +22,16 @@ export default function WhyMatters() {
             <div style={whyStyles.eyebrow}>FOR YOU + YOUR FAMILY</div>
             <h3 style={h3}>Why it matters</h3>
             <p style={whyStyles.lead}>
-              Lorem ipsum dolor sit amet — children need you at your best, consectetur
-              adipiscing elit sed do eiusmod.
+              The children in your care need you at your best — and getting to your best
+              starts with understanding yourself.
             </p>
             <div style={whyStyles.subhead}>When you know what's beneath the surface:</div>
             <ul style={whyStyles.list}>
               {[
-                'Respond more calmly in difficult moments',
-                'Recognize when you need support — before reaching a limit',
-                'Create protective boundaries that actually hold',
-                'Preserve the strength to keep showing up',
+                'You respond more calmly in difficult moments',
+                'You recognize when you need support — before you reach your limit',
+                'You create boundaries that protect everyone in your home',
+                'You preserve the strength and heart it takes to keep showing up',
               ].map((t) => (
                 <li key={t} style={whyStyles.li}>
                   <span style={whyStyles.checkBox}>
@@ -55,15 +55,15 @@ export default function WhyMatters() {
             <div style={whyStyles.eyebrow}>BUILT FOR THIS COMMUNITY</div>
             <h3 style={h3}>Designed for Utah foster families</h3>
             <p style={whyStyles.lead}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Utah Foster Care
-              supports your whole family — sed do eiusmod tempor incididunt.
+              Utah Foster Care believes in supporting the whole family — which is why this
+              resource is available to you at no cost.
             </p>
             <div style={whyStyles.featStack}>
               {[
                 { i: 'lock', t: 'Available at no cost', d: 'For every licensed Utah foster family. No subscription. No paywall.' },
                 { i: 'family', t: 'For the whole family', d: 'Use with your partner, your children, or just for yourself.' },
                 { i: 'target', t: 'A personalized path', d: 'Recommendations tied to your actual resilience profile, not generic advice.' },
-                { i: 'shield', t: 'Private by default', d: 'Your responses stay yours. Lorem ipsum dolor sit amet.' },
+                { i: 'shield', t: 'Private by default', d: 'Your responses stay yours. No judgment, and no diagnosis.' },
               ].map((f) => (
                 <div key={f.t} style={whyStyles.featRow}>
                   <div style={whyStyles.featIcon}>

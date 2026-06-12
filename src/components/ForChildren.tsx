@@ -8,7 +8,7 @@ export default function ForChildren() {
   const narrow = bp !== 'desktop'
   const padX = mobile ? 22 : narrow ? 40 : 64
 
-  const section = { ...childrenStyles.section, padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px` }
+  const section = { ...childrenStyles.section, padding: `${mobile ? 64 : narrow ? 80 : 88}px ${padX}px` }
   const h2 = { ...childrenStyles.h2, fontSize: mobile ? 28 : narrow ? 38 : 48 }
   const grid = {
     ...childrenStyles.grid,
@@ -26,10 +26,9 @@ export default function ForChildren() {
           and the <span style={childrenStyles.accent}>insight</span> to walk it with them.
         </h2>
         <p style={childrenStyles.lead}>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit — children get
-          age-appropriate resilience support that meets them where they are, at their
-          own pace. Parents gain personalized guidance based on their child's actual
-          profile, not general advice.
+          Children get age-appropriate resilience support that meets them where they are,
+          at their own pace. Parents gain personalized guidance based on their child's
+          actual profile — not general advice.
         </p>
 
         <div style={grid}>
@@ -73,14 +72,14 @@ export default function ForChildren() {
               Concrete insight into how to support them
             </div>
             <p style={childrenStyles.parentLead}>
-              Lorem ipsum dolor sit amet — not general advice, but personalized guidance
-              shaped by your child's actual resilience profile.
+              Not general advice, but personalized guidance shaped by your child's actual
+              resilience profile.
             </p>
             <div style={childrenStyles.parentList}>
               {[
                 { t: 'A shared path forward', d: 'You see what they see — and the next steps you can take together.' },
                 { t: 'Resources at every level', d: 'Tools matched to their profile, available the moment you need them.' },
-                { t: 'Support from Utah Foster Care', d: 'Lorem ipsum dolor sit amet consectetur adipiscing elit.' },
+                { t: 'Support from Utah Foster Care', d: 'Utah Foster Care personnel are on hand for personalized support and guidance.' },
               ].map((b) => (
                 <div key={b.t} style={childrenStyles.parentRow}>
                   <span style={childrenStyles.parentCheck}>

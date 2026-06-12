@@ -27,7 +27,7 @@ export default function Footer() {
   const bottomRow: CSSProperties = {
     ...footStyles.bottomRow,
     flexDirection: mobile ? 'column' : 'row',
-    alignItems: mobile ? 'flex-start' : 'center',
+    alignItems: 'center',
     gap: mobile ? 10 : 0,
   }
 
@@ -62,7 +62,6 @@ export default function Footer() {
       <div style={footStyles.divider} />
       <div style={bottomRow}>
         <div style={footStyles.copy}>© 2026 Utah Foster Care × Terrace Metrics. All rights reserved.</div>
-        <div style={footStyles.bottomMeta}>Lorem ipsum dolor sit amet — non-profit partnership notice</div>
       </div>
     </footer>
   )
@@ -99,9 +98,9 @@ const footStyles: Record<string, CSSProperties> = {
   divider: { height: '0.5px', background: 'rgba(255,255,255,0.08)', margin: '56px auto 24px', maxWidth: 1280 },
   bottomRow: {
     maxWidth: 1280, margin: '0 auto',
-    display: 'flex', justifyContent: 'space-between', alignItems: 'center',
+    display: 'flex', justifyContent: 'center', alignItems: 'center',
     fontSize: 12, color: 'rgba(255,255,255,0.4)',
   },
-  copy: {},
+  copy: { textAlign: 'center' },
   bottomMeta: { fontStyle: 'italic' },
 }

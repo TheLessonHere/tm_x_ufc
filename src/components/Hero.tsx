@@ -43,7 +43,7 @@ export default function Hero() {
 
   const section: CSSProperties = {
     ...heroStyles.section,
-    padding: mobile ? `40px ${padX}px 56px` : narrow ? `48px ${padX}px 72px` : '64px 64px 96px',
+    padding: mobile ? `40px ${padX}px 56px` : narrow ? `48px ${padX}px 72px` : '48px 64px 72px',
   }
   const inner: CSSProperties = {
     ...heroStyles.inner,
@@ -73,9 +73,8 @@ export default function Hero() {
             Strengthen What Matters.
           </h1>
           <p className="hero-lede" style={heroStyles.lead}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. A science-backed
-            check-in for Utah foster families — sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua.
+            A simple, science-backed check-in for Utah foster families. Take a moment to
+            pause, reflect, and notice what you've been carrying — no judgment, no diagnosis.
           </p>
           <div className="hero-cta" style={heroStyles.ctas}>
             <button className="tm-cta" style={heroStyles.primary}>Start your free resiliency journey →</button>

@@ -4,10 +4,10 @@ import CountUp from './CountUp'
 
 export default function Science() {
   const pillars = [
-    { n: '01', t: 'Behavioral outcomes', d: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.' },
-    { n: '02', t: 'Academic outcomes', d: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.' },
-    { n: '03', t: 'Professional outcomes', d: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.' },
-    { n: '04', t: 'Whole-life outcomes', d: 'Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt.' },
+    { n: '01', t: 'Behavioral outcomes', d: 'Stronger emotional regulation and healthier responses in the hard moments.' },
+    { n: '02', t: 'Academic outcomes', d: 'Greater focus, engagement, and follow-through in school and learning.' },
+    { n: '03', t: 'Professional outcomes', d: 'The grit and adaptability that carry into work and long-term goals.' },
+    { n: '04', t: 'Whole-life outcomes', d: 'Healthier relationships, steadier wellbeing, and the capacity to keep showing up.' },
   ]
 
   const bp = useBreakpoint()
@@ -17,7 +17,7 @@ export default function Science() {
 
   const section: CSSProperties = {
     ...scienceStyles.section,
-    padding: `${mobile ? 64 : narrow ? 80 : 120}px ${padX}px`,
+    padding: `${mobile ? 64 : narrow ? 80 : 88}px ${padX}px`,
   }
   const top: CSSProperties = {
     ...scienceStyles.top,
@@ -52,14 +52,14 @@ export default function Science() {
           </div>
           <div style={scienceStyles.right}>
             <p style={scienceStyles.lead}>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-              tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-              veniam, quis nostrud exercitation ullamco laboris.
+              Resilience is one of the strongest predictors of behavioral, academic,
+              professional, and whole-life outcomes — which is exactly why this check-in
+              matters beyond simply &ldquo;feeling better.&rdquo;
             </p>
             <p style={scienceStyles.lead}>
-              Duis aute irure dolor in reprehenderit in voluptate velit esse cillum
-              dolore eu fugiat nulla pariatur — a research-backed platform, not just
-              another wellness app.
+              This tool is grounded in behavioral health research and designed with
+              caregivers in mind — a research-backed platform, not just another wellness
+              app. Because when caregivers are supported, children do better too.
             </p>
           </div>
         </div>

@@ -9,7 +9,7 @@ export default function ClosingCTA() {
 
   const section: CSSProperties = {
     ...closingStyles.section,
-    padding: `${mobile ? 80 : narrow ? 100 : 140}px ${padX}px`,
+    padding: `${mobile ? 80 : narrow ? 100 : 104}px ${padX}px`,
   }
   const h2: CSSProperties = { ...closingStyles.h2, fontSize: mobile ? 32 : narrow ? 46 : 64 }
 
@@ -22,8 +22,8 @@ export default function ClosingCTA() {
           breathe, and <span style={closingStyles.accent}>take care of you.</span>
         </h2>
         <p style={closingStyles.sub}>
-          Lorem ipsum dolor sit amet — no pressure, no expectations. Just support, when
-          you need it.
+          You don't have to carry everything alone. No pressure, no expectations — just
+          support, when you need it.
         </p>
         <div style={closingStyles.ctas}>
           <button className="tm-cta" style={closingStyles.primary}>Start your check-in →</button>
