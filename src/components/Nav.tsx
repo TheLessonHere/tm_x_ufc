@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import type { CSSProperties } from 'react'
-import { Link } from 'react-router-dom'
 import Icon from './Icon'
 import { useBreakpoint } from '../hooks/useBreakpoint'
 
@@ -45,9 +44,9 @@ export default function Nav() {
 
       <div style={navStyles.right}>
         {!narrow && (
-          <Link to="/login" className="tm-purple-hover" style={navStyles.login}>
+          <a href="https://resiliencyforyou.com/wellness/login" className="tm-purple-hover" style={navStyles.login}>
             Login
-          </Link>
+          </a>
         )}
         {!mobile && (
           <a className="tm-cta" style={navStyles.cta} href="https://resiliencyforyou.com/wellness/signup/ufc">
@@ -80,9 +79,9 @@ export default function Nav() {
               {l.label}
             </a>
           ))}
-          <Link className="nav-mobile-link" style={navStyles.mobileLink} to="/login" onClick={() => setOpen(false)}>
+          <a className="nav-mobile-link" style={navStyles.mobileLink} href="https://resiliencyforyou.com/wellness/login" onClick={() => setOpen(false)}>
             Login
-          </Link>
+          </a>
           <a
             className="tm-cta"
             style={navStyles.panelCta}
