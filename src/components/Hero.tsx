@@ -77,7 +77,7 @@ export default function Hero() {
             pause, reflect, and notice what you've been carrying — no judgment, no diagnosis.
           </p>
           <div className="hero-cta" style={heroStyles.ctas}>
-            <button className="tm-cta" style={heroStyles.primary}>Start your free resiliency journey →</button>
+            <a className="tm-cta" style={heroStyles.primary} href="https://resiliencyforyou.com/wellness/signup/ufc">Start your free resiliency journey →</a>
             <button
               className="tm-cta"
               style={heroStyles.secondary}
@@ -145,6 +145,7 @@ const heroStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '15px 28px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'inline-block', textDecoration: 'none',
   },
   secondary: {
     background: 'transparent', color: 'var(--tm-ink)',

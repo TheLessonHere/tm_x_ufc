@@ -76,7 +76,7 @@ export default function WhyMatters() {
                 </div>
               ))}
             </div>
-            <button className="tm-cta" style={whyStyles.cta}>Get free access →</button>
+            <a className="tm-cta" style={whyStyles.cta} href="https://resiliencyforyou.com/wellness/signup/ufc">Get free access →</a>
           </article>
         </div>
       </div>
@@ -149,5 +149,6 @@ const whyStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '13px 26px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'inline-block', textDecoration: 'none',
   },
 }

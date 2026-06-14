@@ -26,7 +26,7 @@ export default function ClosingCTA() {
           support, when you need it.
         </p>
         <div style={closingStyles.ctas}>
-          <button className="tm-cta" style={closingStyles.primary}>Start your check-in →</button>
+          <a className="tm-cta" style={closingStyles.primary} href="https://resiliencyforyou.com/wellness/signup/ufc">Start your check-in →</a>
           <button className="tm-cta" style={closingStyles.secondary}>Talk to Utah Foster Care</button>
         </div>
         <div style={closingStyles.foot}>
@@ -74,6 +74,7 @@ const closingStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '16px 32px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'inline-block', textDecoration: 'none',
   },
   secondary: {
     background: 'transparent', color: '#fff',

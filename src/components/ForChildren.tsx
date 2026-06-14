@@ -92,7 +92,7 @@ export default function ForChildren() {
                 </div>
               ))}
             </div>
-            <button className="tm-cta" style={childrenStyles.parentBtn}>Start your family's journey →</button>
+            <a className="tm-cta" style={childrenStyles.parentBtn} href="https://resiliencyforyou.com/wellness/signup/ufc">Start your family's journey →</a>
           </div>
         </div>
       </div>
@@ -177,5 +177,6 @@ const childrenStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '13px 26px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'inline-block', textDecoration: 'none',
   },
 }

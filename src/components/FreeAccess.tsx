@@ -38,7 +38,7 @@ export default function FreeAccess() {
             foster family has a personalized path to stronger resilience — at no cost.
           </p>
           <div style={freeStyles.ctas}>
-            <button className="tm-cta" style={freeStyles.primary}>Get free access →</button>
+            <a className="tm-cta" style={freeStyles.primary} href="https://resiliencyforyou.com/wellness/signup/ufc">Get free access →</a>
             <button className="tm-link-nudge" style={freeStyles.secondary}>Already have an account · Log in</button>
           </div>
         </div>
@@ -112,6 +112,7 @@ const freeStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '15px 28px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'inline-block', textDecoration: 'none',
   },
   secondary: {
     background: 'transparent', color: 'var(--tm-ink)',

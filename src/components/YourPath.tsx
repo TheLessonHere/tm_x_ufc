@@ -102,7 +102,7 @@ export default function YourPath() {
         </div>
 
         <div style={ctaWrap}>
-          <button className="tm-cta" style={pathStyles.cta}>Start your free resiliency journey →</button>
+          <a className="tm-cta" style={pathStyles.cta} href="https://resiliencyforyou.com/wellness/signup/ufc">Start your free resiliency journey →</a>
           <div style={pathStyles.reassure}>No subscription · Cancel anytime · Your data is private</div>
         </div>
       </div>
@@ -321,6 +321,7 @@ const pathStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '16px 32px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'inline-block', textDecoration: 'none',
   },
   reassure: {
     marginTop: 18, fontSize: 13, color: 'var(--tm-text-3)',

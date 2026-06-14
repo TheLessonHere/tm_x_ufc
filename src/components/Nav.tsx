@@ -50,9 +50,9 @@ export default function Nav() {
           </Link>
         )}
         {!mobile && (
-          <button className="tm-cta" style={navStyles.cta}>
+          <a className="tm-cta" style={navStyles.cta} href="https://resiliencyforyou.com/wellness/signup/ufc">
             {narrow ? 'Get started' : 'Get started for free'}
-          </button>
+          </a>
         )}
         {narrow && (
           <button
@@ -83,9 +83,14 @@ export default function Nav() {
           <Link className="nav-mobile-link" style={navStyles.mobileLink} to="/login" onClick={() => setOpen(false)}>
             Login
           </Link>
-          <button className="tm-cta" style={navStyles.panelCta} onClick={() => setOpen(false)}>
+          <a
+            className="tm-cta"
+            style={navStyles.panelCta}
+            href="https://resiliencyforyou.com/wellness/signup/ufc"
+            onClick={() => setOpen(false)}
+          >
             Get started for free
-          </button>
+          </a>
         </div>
       )}
     </nav>
@@ -115,6 +120,7 @@ const navStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '11px 22px',
     fontSize: 14, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)', whiteSpace: 'nowrap',
+    display: 'inline-block', textDecoration: 'none',
   },
   hamburger: {
     display: 'inline-flex', alignItems: 'center', justifyContent: 'center',
@@ -141,5 +147,6 @@ const navStyles: Record<string, CSSProperties> = {
     borderRadius: 999, padding: '13px 22px',
     fontSize: 15, fontWeight: 500, cursor: 'pointer',
     fontFamily: 'var(--tm-sans)',
+    display: 'block', textAlign: 'center', textDecoration: 'none',
   },
 }
